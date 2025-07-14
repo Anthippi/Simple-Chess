@@ -42,16 +42,6 @@ class ChessGame:
                 return
 
             move = chess.Move(self.selected_square, square)  # Δημιουργία αντικειμένου κίνησης
-            piece = self.board.piece_at(self.selected_square)
-
-            # Έλεγχος για προαγωγή πιονιού (promotion)
-            if piece and piece.piece_type == chess.PAWN:
-                rank = chess.square_rank(square)
-                # Αν είναι στην τελευταία γραμμή (λευκό -> 7, μαύρο -> 0)
-                if (piece.color == chess.WHITE and rank == 7) or (piece.color == chess.BLACK and rank == 0):
-                    if promotion_choice_callback:
-                        promotion_piece = promotion_choice_callback(self.board.turn)  # Παίρνει την επιλογή από UI
-                        move = chess.Move(self.selected_square, square, promotion=promotion_piece)  # Δημιουργεί κίνηση με προαγωγή
 
             # Τσεκάρει αν η κίνηση είναι έγκυρη
             print(f"Trying move: {self.selected_square} → {square}")
