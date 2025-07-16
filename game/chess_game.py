@@ -35,27 +35,31 @@ class ChessGame:
 
         # Δεύτερο click: προσπάθεια για κίνηση
         else:
-            # Αν ο παίκτης ξανακάνει κλικ στο ίδιο τετράγωνο → ακυρώνεται η επιλογή
             if square == self.selected_square:
                 print("Deselected same square.")
                 self.selected_square = None
                 return
 
-            move = chess.Move(self.selected_square, square)  # Δημιουργία αντικειμένου κίνησης
+            piece = self.board.piece_at(self.selected_square)
+            move = chess.Move(self.selected_square, square)
 
-            # Τσεκάρει αν η κίνηση είναι έγκυρη
+            # Έλεγχος για promotion πιόνιου
+            if piece and piece.piece_type == chess.PAWN:
+                rank = chess.square_rank(square)
+                if (piece.color == chess.WHITE and rank == 7) or (piece.color == chess.BLACK and rank == 0):
+                    if promotion_choice_callback:
+                        promotion_piece = promotion_choice_callback(self.board.turn)
+                        move = chess.Move(self.selected_square, square, promotion=promotion_piece)
+
             print(f"Trying move: {self.selected_square} → {square}")
             if move in self.board.legal_moves:
-                self.board.push(move)  # Εκτελεί την κίνηση
+                self.board.push(move)
                 print("Move successful.")
-
-                # Αν τελείωσε η παρτίδα (ματ, πατ, ισοπαλία)
                 if self.board.is_game_over():
                     self.result = self.board.result()
             else:
                 print("Illegal move.")
 
-            # Reset επιλογής για επόμενο γύρο
             self.selected_square = None
 
     def is_game_over(self):
