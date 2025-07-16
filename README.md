@@ -61,7 +61,3 @@ python main.py
 https://github.com/user-attachments/assets/a58439ec-ff1e-4d7c-99aa-1c75b2d4de77
 
 https://github.com/user-attachments/assets/4e5bfe69-1916-49d3-8d33-c832532b2941
-
-
-
-
