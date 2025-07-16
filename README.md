@@ -31,7 +31,6 @@
 
 ```bash 
 git clone https://github.com/Anthippi/Simple-Chess.git
-cd Simple-Chess
 ```
 
 ### Δημιούργησε Virtual Environment 
