@@ -20,7 +20,7 @@
 ## Εργαλεία 
 
 - [Python 3.8+](https://www.python.org)
-- [Pygame](https://www.pygame.org/) – GUI για σχεδίαση σκακιέρας και αλληλεπίδραση
+- [Pygame](https://www.pygame.org/docs/) – GUI για σχεδίαση σκακιέρας και αλληλεπίδραση
 - [python-chess](https://python-chess.readthedocs.io/) – μηχανή σκακιού και κανόνες
 
 > Αν δεν έχεις τις εικόνες, μπορείς να τις βρεις δωρεάν στο https://commons.wikimedia.org/wiki/Category:PNG_chess_pieces/Standard_transparent.
